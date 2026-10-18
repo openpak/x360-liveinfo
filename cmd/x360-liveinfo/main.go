@@ -13,8 +13,8 @@ import (
 	"syscall"
 	"time"
 
-	"openpak/x360-kdc/internal/config"
-	"openpak/x360-kdc/internal/liveinfo"
+	"github.com/openpak/x360-common/config"
+	"github.com/openpak/x360-liveinfo/internal/liveinfo"
 )
 
 func main() {

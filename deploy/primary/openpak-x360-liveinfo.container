@@ -3,8 +3,7 @@ Description=OpenPak Xbox 360 LiveHive endpoint (x360-liveinfo): /liveinfo/GetLiv
 
 [Container]
 ContainerName=openpak-x360-liveinfo
-Image=ghcr.io/openpak/x360-kdc:latest
-Entrypoint=/usr/local/bin/x360-liveinfo
+Image=ghcr.io/openpak/x360-liveinfo:latest
 AutoUpdate=registry
 Network=openpak.network
 IP=10.89.2.251

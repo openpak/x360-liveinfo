@@ -1,5 +1,7 @@
 # Changelog
 
+- 2026-10-19: configure the native profile image hostname and port.
+
 - 2026-10-19: configure the dashboard Home content root and locale-aware manifest path.
 
 - 2026-10-19: deployment advertises HTTPS progress/profile URLs; XAM omits REST Authorization

@@ -11,7 +11,7 @@ IP=10.89.2.251
 Environment=X360_LIVEINFO_ADDR=:10025
 Environment=X360_LIVEINFO_DEBUG=true
 # XAM sends REST Authorization only for HTTPS LiveHive URLs.
-Environment=X360_LIVEINFO_HIVE_EXTRA=LiveServiceUrl.progress=https://progress.xboxlive.com;LiveServiceUrl.profile=https://profile.xboxlive.com
+Environment=X360_LIVEINFO_HIVE_EXTRA=LiveServiceUrl.progress=https://progress.xboxlive.com;LiveServiceUrl.profile=https://profile.xboxlive.com;EpixXManUriRoot=http://content.xboxlive.com;EpixXManManifestUriPath=/epix/$locale/
 
 [Service]
 Restart=always

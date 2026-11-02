@@ -1,5 +1,7 @@
 # Changelog
 
+- 2026-11-02: v0.9.1: deployment advertises UpdateUriRoot1 and SOMRevision (x360-som online manifest); no code change.
+
 - 2026-10-19: configure the native profile image hostname and port.
 
 - 2026-10-19: configure the dashboard Home content root and locale-aware manifest path.

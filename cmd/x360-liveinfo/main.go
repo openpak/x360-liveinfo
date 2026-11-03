@@ -14,6 +14,7 @@ import (
 	"time"
 
 	"github.com/openpak/x360-common/config"
+	"github.com/openpak/x360-common/httplog"
 	"github.com/openpak/x360-liveinfo/internal/liveinfo"
 )
 
@@ -41,7 +42,7 @@ func main() {
 	ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt, syscall.SIGTERM)
 	defer stop()
 	log.Info("x360-liveinfo listening", "addr", ln.Addr(), "smrevision", cfg.SMRevision, "poll_minutes", cfg.PollMinutes, "debug", cfg.Debug)
-	srv := &http.Server{Handler: h, ReadHeaderTimeout: 10 * time.Second}
+	srv := &http.Server{Handler: httplog.Wrap(h), ReadHeaderTimeout: 10 * time.Second}
 	go func() {
 		<-ctx.Done()
 		sc, cancel := context.WithTimeout(context.Background(), 5*time.Second)

@@ -10,7 +10,6 @@ package liveinfo
 
 import (
 	"encoding/binary"
-	"encoding/hex"
 	"errors"
 	"fmt"
 	"io"
@@ -140,14 +139,7 @@ const maxLoggedBody = 4096
 func (h *Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	reqBody, _ := io.ReadAll(io.LimitReader(r.Body, maxLoggedBody))
 	if h.Log != nil {
-		shown := reqBody
-		if len(shown) > 64 {
-			shown = shown[:64]
-		}
-		h.Log.Info("request", "method", r.Method, "path", r.URL.Path, "query", r.URL.RawQuery,
-			"user_agent", r.Header.Get("User-Agent"), "x_schema_ver", r.Header.Get("X-Schema-Ver"),
-			"content_type", r.Header.Get("Content-Type"), "content_length", r.ContentLength,
-			"body_len", len(reqBody), "body_hex", hex.EncodeToString(shown), "remote", r.RemoteAddr)
+		h.Log.Info("request", "method", r.Method, "path", r.URL.Path, "body_len", len(reqBody), "remote", r.RemoteAddr)
 	}
 	var body []byte
 	switch strings.ToLower(r.URL.Path) {

@@ -145,8 +145,8 @@ func TestHandler(t *testing.T) {
 	if !bytes.Equal(rec.Body.Bytes(), want) || rec.Header().Get("Content-Length") != "42" {
 		t.Fatalf("config body %x len %s", rec.Body.Bytes(), rec.Header().Get("Content-Length"))
 	}
-	if !strings.Contains(logs.String(), "body_hex=06007865") {
-		t.Fatalf("request body not logged: %s", logs.String())
+	if !strings.Contains(logs.String(), "body_len=8") || strings.Contains(logs.String(), "06007865") {
+		t.Fatalf("request logged wrongly: %s", logs.String())
 	}
 	rec = get(h, PathNetAuth)
 	if rec.Code != 200 || !bytes.Equal(rec.Body.Bytes(), []byte{0, 0}) || rec.Header().Get("Content-Type") != ContentType {

@@ -1,5 +1,7 @@
 # Changelog
 
+- 2026-11-04: v0.9.4: Deploy quadlet advertises `SOMRevision=90466AC43FB4F50C` (x360-som v0.1.3 changed the manifest body magic, which changes its auto revision).
+
 - 2026-11-03: v0.9.3: No secrets in logs: the `request` line no longer logs the query string, user agent, headers or body hex (path and body length only). Test added.
 
 - 2026-11-03: v0.9.2: Every request logs one stderr line, `http <method> <path> -> <status> <duration>ms` (x360-common v0.5.1 `httplog`): no query, headers, cookies, tokens or bodies; `/healthz` skipped.
